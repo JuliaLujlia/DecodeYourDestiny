@@ -76,8 +76,8 @@ Material:
     - _Parallax: 0.01
     - _Smoothness: 0.193
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.7676574, b: 0.4292453, a: 1}
-    - _Color: {r: 1, g: 0.7676574, b: 0.42924526, a: 1}
+    - _BaseColor: {r: 0.5471698, g: 0.32605326, b: 0, a: 1}
+    - _Color: {r: 0.5471698, g: 0.32605323, b: 0, a: 1}
     - _EmissionColor: {r: 0.6509434, g: 0.37767, b: 0.37767, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

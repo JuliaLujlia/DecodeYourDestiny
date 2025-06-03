@@ -98,6 +98,7 @@ Material:
     - _DstBlendAlpha: 0
     - _ElectricityAmount_1: 20
     - _EnvironmentReflections: 1
+    - _FrenselPower: 2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -120,8 +121,8 @@ Material:
     - _Color: {r: 1.4113208, g: 0.17841223, b: 1.3232563, a: 0.87058824}
     - _ElectricityAmount: {r: 0.09, g: 0, b: 0, a: 0}
     - _ElectricityScale: {r: 20, g: 0, b: 0, a: 0}
-    - _ElectricitySpeed: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _ElectricityThickness: {r: 900, g: 900, b: 0, a: 0}
+    - _ElectricitySpeed: {r: 0.005, g: 0.005, b: 0, a: 0}
+    - _ElectricityThickness: {r: 1000, g: 1000, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _NoiseSpeed: {r: 0.1, g: -0.5, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

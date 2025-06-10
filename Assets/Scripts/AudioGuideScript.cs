@@ -16,6 +16,10 @@ public class AudioGuideScript : MonoBehaviour
 
     private bool[] wasPlayed; // Um Dopplungen zu vermeiden
 
+    // Collider help var
+    public bool secondAudioFinished;
+    private bool waitingForSecondAudio = false;
+
     void Start()
     {
         // Array zum Nachverfolgen, ob ein Guide schon gespielt wurde
@@ -31,7 +35,15 @@ public class AudioGuideScript : MonoBehaviour
         if (playAfterCardSelected && !wasPlayed[1])
         {
             PlayGuide(1);
+            waitingForSecondAudio = true;
             wasPlayed[1] = true;
+        }
+
+        if (waitingForSecondAudio && !audioSources[1].isPlaying) // besser schreiben
+        {
+            secondAudioFinished = true;
+            waitingForSecondAudio = false;
+            Debug.Log("AudioGuide 1 ist fertig abgespielt.");
         }
 
         // After all Course Videos

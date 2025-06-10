@@ -27,6 +27,8 @@ public class ObjectsScript : MonoBehaviour
     private bool allButtonsClicked = false;
     private int lastVideoPlayedIndex = -1;
 
+    private bool collidersAktiviert = false; // besser schreiben
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,12 +39,27 @@ public class ObjectsScript : MonoBehaviour
         foreach (GameObject obj in choiceObjects)
         {
             // Deactivate all Objects
+            obj.GetComponent<Collider>().enabled = false;
             obj.SetActive(false);
             videoScreen.SetActive(false);
         }
 
         // Finished Video
         videoPlayer.loopPointReached += OnVideoFinished;
+    }
+
+    void Update() // besser schreiben
+    {
+        // Warten, bis die Audio fertig ist
+        if (!collidersAktiviert)
+        {
+            AudioGuideScript guide = FindObjectOfType<AudioGuideScript>();
+            if (guide != null && guide.secondAudioFinished)
+            {
+                EnableChoiceObjectColliders();
+                collidersAktiviert = true;
+            }
+        }
     }
 
     // Show Objectes based on the previous selected Tarot Card
@@ -83,6 +100,21 @@ public class ObjectsScript : MonoBehaviour
         choiceObjects[index].SetActive(true);
         requiredClicks++;
     }
+
+    void EnableChoiceObjectColliders() // besser schreiben
+    {
+        foreach (GameObject obj in choiceObjects)
+        {
+            if (obj.activeSelf)
+            {
+                Collider col = obj.GetComponent<Collider>();
+                if (col != null)
+                    col.enabled = true;
+            }
+        }
+        Debug.Log("Collider aktiviert nach Audio-Ende.");
+    }
+
 
     // Start Videos
     public void PlayVideo(int index)

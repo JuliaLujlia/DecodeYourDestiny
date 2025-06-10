@@ -156,6 +156,8 @@ public class ObjectsScript : MonoBehaviour
     void TriggerAllClickedEvent()
     {
         Debug.Log("You watched all Courses!");
+        UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterAllObjects = true;
+
 
         // Clean desk
         foreach (GameObject obj in choiceObjects)

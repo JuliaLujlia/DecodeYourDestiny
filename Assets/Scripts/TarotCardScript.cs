@@ -33,6 +33,7 @@ public class TarotCardScript : MonoBehaviour
         if (OnTarotCardSelectedEvent != null)
         {
             OnTarotCardSelectedEvent.Invoke(selectedTarotCard);
+            UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterCardSelected = true;
         }
     }
 

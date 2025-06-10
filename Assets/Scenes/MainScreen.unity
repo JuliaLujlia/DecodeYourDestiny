@@ -6554,6 +6554,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle Point Light
       objectReference: {fileID: 0}
+    - target: {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: flickerSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: maxIntensity
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: minIntensity
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: randomOffset
+      value: 0.015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27931,7 +27947,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle Point Light
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -32895,6 +32916,7 @@ GameObject:
   - component: {fileID: 1848004474}
   - component: {fileID: 1848004476}
   - component: {fileID: 1848004475}
+  - component: {fileID: 1848004477}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -32957,7 +32979,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -33005,6 +33027,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1848004477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848004473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8c629916ff8374fb9bb9dbbc25962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 0}
+  minIntensity: 0.5
+  maxIntensity: 2
+  flickerSpeed: 0.433
+  randomOffset: 0.1
+  smoothFlicker: 1
 --- !u!1 &1885874531
 GameObject:
   m_ObjectHideFlags: 0
@@ -38202,7 +38242,12 @@ PrefabInstance:
       propertyPath: m_Shadows.m_NearPlane
       value: 0.24
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5874948516569100826, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -44,6 +44,10 @@ public class ObjectsScript : MonoBehaviour
             videoScreen.SetActive(false);
         }
 
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        videoPlayer.SetTargetAudioSource(0, audioSource);
+        videoPlayer.EnableAudioTrack(0, true);
+
         // Finished Video
         videoPlayer.loopPointReached += OnVideoFinished;
     }

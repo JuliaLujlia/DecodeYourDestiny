@@ -6573,7 +6573,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3623080441632633303, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1010583204}
   m_SourcePrefab: {fileID: 100100000, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
 --- !u!4 &656851636 stripped
 Transform:
@@ -12076,6 +12079,29 @@ Transform:
   - {fileID: 828249080}
   m_Father: {fileID: 31253035}
   m_LocalEulerAnglesHint: {x: 0, y: -122.163, z: 0}
+--- !u!1 &1010583201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3623080441632633303, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+  m_PrefabInstance: {fileID: 656851635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1010583204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010583201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8c629916ff8374fb9bb9dbbc25962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 0}
+  minIntensity: 0.1
+  maxIntensity: 0.5
+  flickerSpeed: 0.489
+  randomOffset: 0.016
+  smoothFlicker: 1
 --- !u!1 &1077634451
 GameObject:
   m_ObjectHideFlags: 0
@@ -12087,7 +12113,7 @@ GameObject:
   - component: {fileID: 1077634453}
   - component: {fileID: 1077634452}
   m_Layer: 0
-  m_Name: Fog
+  m_Name: Post Production
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

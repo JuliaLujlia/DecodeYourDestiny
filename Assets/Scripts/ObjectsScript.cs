@@ -27,6 +27,8 @@ public class ObjectsScript : MonoBehaviour
     private bool allButtonsClicked = false;
     private int lastVideoPlayedIndex = -1;
 
+    private bool objectCollidersActived = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,12 +39,32 @@ public class ObjectsScript : MonoBehaviour
         foreach (GameObject obj in choiceObjects)
         {
             // Deactivate all Objects
+            obj.GetComponent<Collider>().enabled = false;
             obj.SetActive(false);
             videoScreen.SetActive(false);
         }
 
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        videoPlayer.SetTargetAudioSource(0, audioSource);
+        videoPlayer.EnableAudioTrack(0, true);
+
         // Finished Video
         videoPlayer.loopPointReached += OnVideoFinished;
+    }
+
+    void Update()
+    {
+        // Wait till Audio Guide is finished
+        if (!objectCollidersActived)
+        {
+            AudioGuideScript guide = FindObjectOfType<AudioGuideScript>();
+            if (guide != null && guide.secondAudioFinished)
+            {
+                EnableChoiceObjectColliders();
+                objectCollidersActived = true;
+            }
+
+        }
     }
 
     // Show Objectes based on the previous selected Tarot Card
@@ -83,6 +105,21 @@ public class ObjectsScript : MonoBehaviour
         choiceObjects[index].SetActive(true);
         requiredClicks++;
     }
+
+    void EnableChoiceObjectColliders()
+    {
+        foreach (GameObject obj in choiceObjects)
+        {
+            if (obj.activeSelf)
+            {
+                Collider col = obj.GetComponent<Collider>();
+                if (col != null)
+                    col.enabled = true;
+            }
+        }
+        Debug.Log("Object Colliders activated after Audio.");
+    }
+
 
     // Start Videos
     public void PlayVideo(int index)
@@ -156,6 +193,8 @@ public class ObjectsScript : MonoBehaviour
     void TriggerAllClickedEvent()
     {
         Debug.Log("You watched all Courses!");
+        UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterAllObjects = true;  // Trigger Audio
+
 
         // Clean desk
         foreach (GameObject obj in choiceObjects)

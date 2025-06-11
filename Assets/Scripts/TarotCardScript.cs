@@ -13,6 +13,45 @@ public class TarotCardScript : MonoBehaviour
     public class TarotCardSelectedEvent : UnityEvent<string> { }
     public TarotCardSelectedEvent OnTarotCardSelectedEvent;
 
+    private bool collidersActived = false;
+
+    private void Start()
+    {
+        UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playIntro = true;
+
+        foreach (GameObject card in TarotCards)
+        {
+            card.GetComponent<Collider>().enabled = false;
+        }
+    }
+    void Update()
+    {
+        // Wait till Audio Guide is finished
+        if (!collidersActived)
+        {
+            AudioGuideScript guide = FindObjectOfType<AudioGuideScript>();
+            if (guide != null && guide.firstAudioFinished)
+            {
+                EnableChoiceObjectColliders();
+                collidersActived = true;
+            }
+        }
+    }
+
+    void EnableChoiceObjectColliders()
+    {
+        foreach (GameObject card in TarotCards)
+        {
+            if (card.activeSelf)
+            {
+                Collider col = card.GetComponent<Collider>();
+                if (col != null)
+                    col.enabled = true;
+            }
+        }
+        Debug.Log("Collider activated after Audio.");
+    }
+
     public void OnTarotCardClicked(GameObject clickedCard)
     {
         // Save selected Tarot Card
@@ -33,6 +72,7 @@ public class TarotCardScript : MonoBehaviour
         if (OnTarotCardSelectedEvent != null)
         {
             OnTarotCardSelectedEvent.Invoke(selectedTarotCard);
+            UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterCardSelected = true;
         }
     }
 

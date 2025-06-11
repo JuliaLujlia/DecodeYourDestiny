@@ -7,6 +7,8 @@ public class HandReadingScript : MonoBehaviour
 
     public TarotCardScript tarotCardScript;
 
+    private bool handCollidersActivated = false;
+
     public void MoveHands()
     {
         Debug.Log("Hand Reading");
@@ -15,8 +17,24 @@ public class HandReadingScript : MonoBehaviour
         rightHand.transform.position += new Vector3(0, 0, -0.5f);
 
         // Acctivate Collider
-        leftHand.GetComponent<Collider>().enabled = true;
-        rightHand.GetComponent<Collider>().enabled = true;
+        //leftHand.GetComponent<Collider>().enabled = true;
+        //rightHand.GetComponent<Collider>().enabled = true;
+    }
+
+    void Update()
+    {
+        if (!handCollidersActivated)
+        {
+            AudioGuideScript guide = FindObjectOfType<AudioGuideScript>();
+            if (guide != null && guide.thirdAudioFinished)
+            {
+                leftHand.GetComponent<Collider>().enabled = true;
+                rightHand.GetComponent<Collider>().enabled = true;
+
+                handCollidersActivated = true;
+                Debug.Log("Hand-Collider activated after Audio.");
+            }
+        }
     }
 
     public void HandDescion(string handName)

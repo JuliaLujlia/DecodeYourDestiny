@@ -27,7 +27,7 @@ public class ObjectsScript : MonoBehaviour
     private bool allButtonsClicked = false;
     private int lastVideoPlayedIndex = -1;
 
-    private bool collidersAktiviert = false; // besser schreiben
+    private bool objectCollidersActived = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,17 +48,18 @@ public class ObjectsScript : MonoBehaviour
         videoPlayer.loopPointReached += OnVideoFinished;
     }
 
-    void Update() // besser schreiben
+    void Update()
     {
-        // Warten, bis die Audio fertig ist
-        if (!collidersAktiviert)
+        // Wait till Audio Guide is finished
+        if (!objectCollidersActived)
         {
             AudioGuideScript guide = FindObjectOfType<AudioGuideScript>();
             if (guide != null && guide.secondAudioFinished)
             {
                 EnableChoiceObjectColliders();
-                collidersAktiviert = true;
+                objectCollidersActived = true;
             }
+
         }
     }
 
@@ -101,7 +102,7 @@ public class ObjectsScript : MonoBehaviour
         requiredClicks++;
     }
 
-    void EnableChoiceObjectColliders() // besser schreiben
+    void EnableChoiceObjectColliders()
     {
         foreach (GameObject obj in choiceObjects)
         {
@@ -112,7 +113,7 @@ public class ObjectsScript : MonoBehaviour
                     col.enabled = true;
             }
         }
-        Debug.Log("Collider aktiviert nach Audio-Ende.");
+        Debug.Log("Object Colliders activated after Audio.");
     }
 
 
@@ -188,7 +189,7 @@ public class ObjectsScript : MonoBehaviour
     void TriggerAllClickedEvent()
     {
         Debug.Log("You watched all Courses!");
-        UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterAllObjects = true;
+        UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterAllObjects = true;  // Trigger Audio
 
 
         // Clean desk

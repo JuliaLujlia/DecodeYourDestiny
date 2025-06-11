@@ -7,6 +7,7 @@ public class AudioGuideScript : MonoBehaviour
     public AudioSource[] audioSources;
 
     // Flags, um zu kontrollieren, welcher Guide abgespielt werden soll
+    public bool playIntro;
     public bool playAfterCardSelected;
     public bool playAfterAllObjects;
     public bool playAfterRatloserRight;
@@ -17,19 +18,39 @@ public class AudioGuideScript : MonoBehaviour
     private bool[] wasPlayed; // Um Dopplungen zu vermeiden
 
     // Collider help var
+
+    public bool firstAudioFinished;
+    private bool waitingForFirstAudio = false;
     public bool secondAudioFinished;
     private bool waitingForSecondAudio = false;
+    public bool thirdAudioFinished;
+    private bool waitingForThirdAudio = false;
+    public bool fourthAudioFinished;
+    private bool waitingForFourthAudio = false;
+    
 
     void Start()
     {
-        // Array zum Nachverfolgen, ob ein Guide schon gespielt wurde
+        // Track
         wasPlayed = new bool[audioSources.Length];
     }
 
     void Update()
     {
         // INTRO GUIDE 
-        // automatic 
+        if (playIntro && !wasPlayed[0])
+        {
+            PlayGuide(0);
+            waitingForFirstAudio = true;
+            wasPlayed[0] = true;
+        }
+
+        if (waitingForFirstAudio && !audioSources[0].isPlaying)
+        {
+            firstAudioFinished = true;
+            waitingForFirstAudio = false;
+            Debug.Log("AudioGuide 0 finished.");
+        }
 
         // After Card selected
         if (playAfterCardSelected && !wasPlayed[1])
@@ -39,18 +60,26 @@ public class AudioGuideScript : MonoBehaviour
             wasPlayed[1] = true;
         }
 
-        if (waitingForSecondAudio && !audioSources[1].isPlaying) // besser schreiben
+        if (waitingForSecondAudio && !audioSources[1].isPlaying)
         {
             secondAudioFinished = true;
             waitingForSecondAudio = false;
-            Debug.Log("AudioGuide 1 ist fertig abgespielt.");
+            Debug.Log("AudioGuide 1 finished.");
         }
 
         // After all Course Videos
         if (playAfterAllObjects && !wasPlayed[2])
         {
             PlayGuide(2);
+            waitingForThirdAudio = true;
             wasPlayed[2] = true;
+        }
+
+        if (waitingForThirdAudio && !audioSources[2].isPlaying)
+        {
+            thirdAudioFinished = true;
+            waitingForThirdAudio = false;
+            Debug.Log("AudioGuide 2 finished.");
         }
 
         // Job
@@ -85,13 +114,13 @@ public class AudioGuideScript : MonoBehaviour
     {
         if (index < 0 || index >= audioSources.Length) return;
 
-        // Stoppt alle anderen
+        // Stop
         foreach (var a in audioSources)
         {
             a.Stop();
         }
 
         audioSources[index].Play();
-        Debug.Log("AudioGuide " + index + " gestartet.");
+        Debug.Log("AudioGuide " + index + " started.");
     }
 }

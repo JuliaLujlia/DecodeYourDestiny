@@ -1610,7 +1610,7 @@ MonoBehaviour:
   handReadingScript: {fileID: 1645797423}
   videoPlayer: {fileID: 1307463180}
   videoClips:
-  - {fileID: 32900000, guid: f1814e2d608ade34bb89f11c1a1b99ac, type: 3}
+  - {fileID: 32900000, guid: 8263efafe5e03754e813797a671afcf3, type: 3}
   - {fileID: 32900000, guid: b5ce9b91f83702340b21174c7ce8c1a1, type: 3}
   - {fileID: 32900000, guid: 9562a1a23af5bd84e8d08bb9d9950b90, type: 3}
   - {fileID: 32900000, guid: 599ff218a12261c419082b9720a75b8d, type: 3}
@@ -39583,5 +39583,4 @@ SceneRoots:
   - {fileID: 1652521064}
   - {fileID: 1725409720}
   - {fileID: 1352476419}
-  - {fileID: 1987667705}
-
+  - {fileID: 2123401263}

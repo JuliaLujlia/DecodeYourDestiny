@@ -16,7 +16,7 @@ public class ObjectsScript : MonoBehaviour
     public GameObject videoScreen;
 
     // Testing Audio Version
-    public AudioSource audioSource;
+    public AudioSource[] audioSources;
 
     // Count Course Videos, for EventTrigger: Hand Reading
     private int requiredClicks = 0;
@@ -44,9 +44,7 @@ public class ObjectsScript : MonoBehaviour
             videoScreen.SetActive(false);
         }
 
-        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-        videoPlayer.SetTargetAudioSource(0, audioSource);
-        videoPlayer.EnableAudioTrack(0, true);
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
 
         // Finished Video
         videoPlayer.loopPointReached += OnVideoFinished;
@@ -133,7 +131,16 @@ public class ObjectsScript : MonoBehaviour
 
 
             // Audio
-            audioSource.Play();
+            foreach (var audio in audioSources)
+            {
+                if (audio.isPlaying)
+                    audio.Stop();
+            }
+
+            if (index < audioSources.Length && audioSources[index] != null)
+            {
+                audioSources[index].Play();
+            }
 
             // Deactivate all Objects/Colliders
             for (int i = 0; i < choiceObjects.Length; i++)

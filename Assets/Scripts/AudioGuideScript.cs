@@ -25,9 +25,15 @@ public class AudioGuideScript : MonoBehaviour
     private bool waitingForSecondAudio = false;
     public bool thirdAudioFinished;
     private bool waitingForThirdAudio = false;
-    public bool fourthAudioFinished;
-    private bool waitingForFourthAudio = false;
-    
+
+    private bool waitingForEndAudio = false;
+    private int endAudioIndex = -1;
+    private bool endSceneShown = false;
+
+    // End Screen
+    public GameObject endScreen;
+
+
 
     void Start()
     {
@@ -87,12 +93,16 @@ public class AudioGuideScript : MonoBehaviour
         {
             PlayGuide(3);
             wasPlayed[3] = true;
+            endAudioIndex = 3;
+            waitingForEndAudio = true;
         }
 
         if (playAfterJobLeft && !wasPlayed[4])
         {
             PlayGuide(4);
             wasPlayed[4] = true;
+            endAudioIndex = 4;
+            waitingForEndAudio = true;
         }
 
         // Ratloser
@@ -100,14 +110,24 @@ public class AudioGuideScript : MonoBehaviour
         {
             PlayGuide(5);
             wasPlayed[5] = true;
+            endAudioIndex = 5;
+            waitingForEndAudio = true;
         }
 
         if (playAfterRatloserLeft && !wasPlayed[6])
         {
             PlayGuide(6);
             wasPlayed[6] = true;
+            endAudioIndex = 6;
+            waitingForEndAudio = true;
         }
 
+        // Zeige Endszene, wenn Audio fertig ist
+        if (waitingForEndAudio && endAudioIndex >= 0 && !audioSources[endAudioIndex].isPlaying && !endSceneShown)
+        {
+            ShowEndScene();
+            endSceneShown = true;
+        }
     }
 
     void PlayGuide(int index)
@@ -122,5 +142,14 @@ public class AudioGuideScript : MonoBehaviour
 
         audioSources[index].Play();
         Debug.Log("AudioGuide " + index + " started.");
+    }
+
+    void ShowEndScene()
+    {
+        Debug.Log("Ende");
+        if (endScreen != null)
+        {
+            endScreen.SetActive(true);
+        }
     }
 }

@@ -154,6 +154,13 @@ public class ObjectsScript : MonoBehaviour
             hasBeenWatched[index] = true;
             clickedCount++;
 
+            // Light deactivate
+            Light objLight = choiceObjects[index].GetComponentInChildren<Light>();
+            if (objLight != null)
+            {
+                objLight.enabled = false;
+            }
+
             lastVideoPlayedIndex = index;
 
             // Event Trigger, all Video Courses watched

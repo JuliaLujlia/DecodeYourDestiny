@@ -32,6 +32,11 @@ public class AudioGuideScript : MonoBehaviour
 
     // End Screen
     public GameObject endScreen;
+    public Vector3 startPosition;
+    public Vector3 targetPosition;
+    public float moveSpeed = 2f;
+    private bool animateEndScreen = false;
+    private CanvasGroup endScreenCanvasGroup;
 
 
 
@@ -39,6 +44,15 @@ public class AudioGuideScript : MonoBehaviour
     {
         // Track
         wasPlayed = new bool[audioSources.Length];
+
+        // End Screen
+        if (endScreen != null)
+        {
+            endScreen.transform.localPosition = startPosition;
+
+            // Falls CanvasGroup nicht passt, einfach weglassen oder andere Methode zum Fading nutzen
+            endScreen.SetActive(false);
+        }
     }
 
     void Update()
@@ -128,6 +142,15 @@ public class AudioGuideScript : MonoBehaviour
             ShowEndScene();
             endSceneShown = true;
         }
+
+        if (animateEndScreen && endScreen != null)
+        {
+            endScreen.transform.localPosition = Vector3.Lerp(
+                endScreen.transform.localPosition,
+                targetPosition,
+                Time.deltaTime * moveSpeed
+            );
+        }
     }
 
     void PlayGuide(int index)
@@ -150,6 +173,7 @@ public class AudioGuideScript : MonoBehaviour
         if (endScreen != null)
         {
             endScreen.SetActive(true);
+            animateEndScreen = true;
         }
     }
 }

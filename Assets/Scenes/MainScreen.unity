@@ -40893,6 +40893,9 @@ MonoBehaviour:
   secondAudioFinished: 0
   thirdAudioFinished: 0
   endScreen: {fileID: 562062606}
+  startPosition: {x: -970, y: -1400, z: 0}
+  targetPosition: {x: -970, y: -525, z: 0}
+  moveSpeed: 1
 --- !u!4 &2123401263
 Transform:
   m_ObjectHideFlags: 0

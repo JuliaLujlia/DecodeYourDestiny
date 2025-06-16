@@ -1351,7 +1351,13 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 470568680a6161f4987d6faf054481b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b70c0a45c7d8444b86b471889ca1fd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 611362153}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b70c0a45c7d8444b86b471889ca1fd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026496731}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b70c0a45c7d8444b86b471889ca1fd7, type: 3}
       insertIndex: -1
@@ -1375,10 +1381,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crystalRenderer: {fileID: 0}
-  rotationSpeed: 100
+  rotationSpeed: 5
   enablePulse: 1
-  baseEmissionColor: {r: 0.754717, g: 0.73284495, b: 0.13883947, a: 1}
-  pulseFrequency: 6
+  baseEmissionColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseFrequency: 3
   maxPulseIntensity: 5
   minPulseIntensity: 0.3
 --- !u!4 &240148571 stripped
@@ -7405,12 +7411,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611362151}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.013414394, y: 0.66885996, z: 0.16616985, w: 0.7244544}
-  m_LocalPosition: {x: 0.94769824, y: 0.12864116, z: 0.16622677}
-  m_LocalScale: {x: 0.27682, y: 0.51164997, z: 0.26189}
+  m_LocalRotation: {x: -0.078438066, y: -0.3430551, z: 0.011709947, w: 0.93596137}
+  m_LocalPosition: {x: -0.44112918, y: -0.31753284, z: 0.060262024}
+  m_LocalScale: {x: 0.91762567, y: 1.6872813, z: 1.0805163}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 240148571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &656851635
 PrefabInstance:
@@ -7442,7 +7448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65451
+      value: 0.657
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7479,6 +7485,10 @@ PrefabInstance:
     - target: {fileID: 3623080441632633303, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_Name
       value: Candle Point Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957898604288975995, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: m_Intensity
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4957898604288975995, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -13766,12 +13776,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026496729}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.013414394, y: 0.66885996, z: 0.16616985, w: 0.7244544}
-  m_LocalPosition: {x: 0.94769824, y: 0.12864116, z: 0.16622677}
-  m_LocalScale: {x: 0.27682, y: 0.51164997, z: 0.26189}
+  m_LocalRotation: {x: -0.078438066, y: -0.3430551, z: 0.011709947, w: 0.93596137}
+  m_LocalPosition: {x: -0.44112918, y: -0.31753284, z: 0.060262024}
+  m_LocalScale: {x: 0.91762567, y: 1.6872813, z: 1.0805163}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 240148571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1032798128
 PrefabInstance:
@@ -25339,8 +25349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657723171}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.063, y: 0.213, z: -0.888}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.063, y: 0.213, z: -0.9091314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25702,6 +25712,7 @@ Transform:
   - {fileID: 31253035}
   - {fileID: 138910048}
   - {fileID: 1987667706}
+  - {fileID: 1884790274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1725409718
@@ -30626,19 +30637,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8333
+      value: 0.838
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65451
+      value: 0.6499
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.46905
+      value: 0.4667
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4054895
+      value: 0.40548947
       objectReference: {fileID: 0}
     - target: {fileID: 2931857212258991049, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30667,6 +30678,10 @@ PrefabInstance:
     - target: {fileID: 3623080441632633303, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_Name
       value: Candle Point Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957898604288975995, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
+      propertyPath: m_Intensity
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4957898604288975995, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -35865,7 +35880,7 @@ Transform:
   - {fileID: 1637855640}
   - {fileID: 1442314362}
   - {fileID: 1838200858}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1690534228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885874531
 GameObject:
@@ -41170,7 +41185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4957898604288975995, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_Intensity
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4957898604288975995, guid: 21c9e8ce59bd468438a5f5228271a913, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -41440,7 +41455,6 @@ SceneRoots:
   - {fileID: 448977849}
   - {fileID: 1260615215}
   - {fileID: 1690534228}
-  - {fileID: 1884790274}
   - {fileID: 1307463181}
   - {fileID: 1885874532}
   - {fileID: 510357077}
@@ -41450,5 +41464,3 @@ SceneRoots:
   - {fileID: 1352476419}
   - {fileID: 2123401263}
   - {fileID: 683491347}
-  - {fileID: 611362153}
-  - {fileID: 1026496731}

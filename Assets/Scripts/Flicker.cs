@@ -8,11 +8,11 @@ public class FlickeringLight : MonoBehaviour
 
     [Tooltip("The minimum intensity the light will flicker down to.")]
     [Range(0f, 8f)]
-    public float minIntensity = 0.5f;
+    public float minIntensity = 0.02f;
 
     [Tooltip("The maximum intensity the light will flicker up to.")]
     [Range(0f, 8f)]
-    public float maxIntensity = 2.0f;
+    public float maxIntensity = 0.5f;
 
     [Tooltip("How quickly the light intensity changes during a flicker.")]
     [Range(0.01f, 0.5f)]

@@ -1375,12 +1375,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crystalRenderer: {fileID: 0}
-  rotationSpeed: 30
+  rotationSpeed: 100
   enablePulse: 1
-  baseEmissionColor: {r: 0.8498642, g: 0.68778926, b: 0.9056604, a: 1}
-  pulseFrequency: 1
-  maxPulseIntensity: 3.03
-  minPulseIntensity: 0.1
+  baseEmissionColor: {r: 0.754717, g: 0.73284495, b: 0.13883947, a: 1}
+  pulseFrequency: 6
+  maxPulseIntensity: 5
+  minPulseIntensity: 0.3
 --- !u!4 &240148571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b70c0a45c7d8444b86b471889ca1fd7, type: 3}
@@ -13187,43 +13187,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6582434
+      value: -0.65834916
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04091306
+      value: -0.040879957
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.17118172
+      value: 0.17154248
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7975606
+      value: 0.796998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5236403
+      value: -0.5248357
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.24090837
+      value: 0.2409458
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17793629
+      value: 0.17688088
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -67.194
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 30.787
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 130.739
+      value: 4.296
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 06c54c3dfd96d7e4e969d199c56c195e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

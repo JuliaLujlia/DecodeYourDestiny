@@ -118,6 +118,35 @@ public class ObjectsScript : MonoBehaviour
         Debug.Log("Object Colliders activated after Audio.");
     }
 
+    void SetAllMaterialsTransparent(GameObject obj, float alpha)
+    {
+        Renderer rend = obj.GetComponent<Renderer>();
+        if (rend != null)
+        {
+            Material[] materials = rend.materials;
+
+            foreach (Material mat in materials)
+            {
+                if (mat == null) continue;
+
+                // Shader
+                mat.SetFloat("_Mode", 3); // 3 = Transparent
+                mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                mat.SetInt("_ZWrite", 0);
+                mat.DisableKeyword("_ALPHATEST_ON");
+                mat.EnableKeyword("_ALPHABLEND_ON");
+                mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                mat.renderQueue = 3000;
+
+                // Alpha
+                Color color = mat.color;
+                color.a = alpha;
+                mat.color = color;
+            }
+        }
+    }
+
 
     // Start Videos
     public void PlayVideo(int index)
@@ -160,6 +189,9 @@ public class ObjectsScript : MonoBehaviour
             {
                 objLight.enabled = false;
             }
+
+            // Transparency
+            SetAllMaterialsTransparent(choiceObjects[index], 0.05f);
 
             lastVideoPlayedIndex = index;
 

@@ -49,8 +49,6 @@ public class AudioGuideScript : MonoBehaviour
         if (endScreen != null)
         {
             endScreen.transform.localPosition = startPosition;
-
-            // Falls CanvasGroup nicht passt, einfach weglassen oder andere Methode zum Fading nutzen
             endScreen.SetActive(false);
         }
     }

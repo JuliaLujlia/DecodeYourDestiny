@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class HandReadingScript : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class HandReadingScript : MonoBehaviour
             handsAnimator.SetTrigger("PlayOutroAnimation");
             outroPlayed = true;
             Debug.Log("Outro animation triggered.");
+
+            TriggerChooseLeftDelayed();
         }
     }
 
@@ -54,10 +57,12 @@ public class HandReadingScript : MonoBehaviour
         Debug.Log("HandDescion Script");
 
         string selectedTarotCard = tarotCardScript.GetSelectedTarotCard();
+        Debug.Log("Hand: " + handName);
+        Debug.Log("Tarot card: " + selectedTarotCard);
 
         if (handName == "LeftHand")
         {
-            handsAnimator.SetTrigger("PlayChooseLeft");
+            TriggerChooseLeftDelayed();
         }
         else if (handName == "RightHand")
         {
@@ -115,4 +120,49 @@ public class HandReadingScript : MonoBehaviour
             Debug.Log("Error, Hand unknown.");
         }
     }
+    // LEFT HAND
+    public void TriggerChooseLeftDelayed()
+    {
+        StartCoroutine(PlayChooseLeftAfterDelay(14.5f));
+    }
+
+    IEnumerator PlayChooseLeftAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (handsAnimator != null)
+        {
+            handsAnimator.SetTrigger("PlayChooseLeft");
+            Debug.Log("Triggering ChooseLeft animation after delay.");
+
+            TriggerChooseRightDelayed();
+        }
+        else
+        {
+            Debug.LogWarning("Animator reference is missing!");
+        }
+    }
+
+    //RIGHT HAND
+    public void TriggerChooseRightDelayed()
+    {
+        StartCoroutine(PlayChooseRightAfterDelay(6.5f)); // Adjust delay after ChooseLeft
+    }
+
+    IEnumerator PlayChooseRightAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (handsAnimator != null)
+        {
+            handsAnimator.SetTrigger("PlayChooseRight");
+            Debug.Log("Triggering ChooseRight animation after delay.");
+        }
+        else
+        {
+            Debug.LogWarning("Animator reference is missing!");
+        }
+    }
+
+
 }

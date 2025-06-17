@@ -221,7 +221,7 @@ public class ObjectsScript : MonoBehaviour
         // Start new scene
         if (handReadingScript != null)
         {
-            handReadingScript.MoveHands();
+            handReadingScript.PlayOutroAnimation();
         }
         else
         {

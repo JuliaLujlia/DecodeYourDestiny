@@ -6,15 +6,27 @@ public class HandReadingScript : MonoBehaviour
     public GameObject rightHand;
 
     public TarotCardScript tarotCardScript;
+    public Animator handsAnimator;
 
     private bool handCollidersActivated = false;
+    private bool outroPlayed = false;
+
+    public void PlayOutroAnimation()
+    {
+        if (!outroPlayed)
+        {
+            handsAnimator.SetTrigger("PlayOutroAnimation");
+            outroPlayed = true;
+            Debug.Log("Outro animation triggered.");
+        }
+    }
 
     public void MoveHands()
     {
         Debug.Log("Hand Reading");
 
-        leftHand.transform.position += new Vector3(0, 0, -0.5f);
-        rightHand.transform.position += new Vector3(0, 0, -0.5f);
+        leftHand.transform.position += new Vector3(0, 0, 0);
+        rightHand.transform.position += new Vector3(0, 0, 0);
 
         // Acctivate Collider
         //leftHand.GetComponent<Collider>().enabled = true;
@@ -43,39 +55,48 @@ public class HandReadingScript : MonoBehaviour
 
         string selectedTarotCard = tarotCardScript.GetSelectedTarotCard();
 
+        if (handName == "LeftHand")
+        {
+            handsAnimator.SetTrigger("PlayChooseLeft");
+        }
+        else if (handName == "RightHand")
+        {
+            handsAnimator.SetTrigger("PlayChooseRight");
+        }
+
         if (handName != null)
         {
             // Der Ratlose
-            if (handName == "Left Hand" && selectedTarotCard == "Der Ratlose")
+            if (handName == "LeftHand" && selectedTarotCard == "Der Ratlose")
             {
                 Debug.Log("Left Hand Ending + Ratloser");
                 UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterRatloserLeft = true;
             }
-            else if (handName == "Right Hand" && selectedTarotCard == "Der Ratlose")
+            else if (handName == "RightHand" && selectedTarotCard == "Der Ratlose")
             {
                 Debug.Log("Right Hand Ending + Ratloser");
                 UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterRatloserRight = true;
             }
 
             // Software Engineer
-            else if (handName == "Left Hand" && selectedTarotCard == "Software Engineer")
+            else if (handName == "LeftHand" && selectedTarotCard == "Software Engineer")
             {
                 Debug.Log("Left Hand Ending + Software Engineer");
                 UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterJobLeft = true;
             }
-            else if (handName == "Right Hand" && selectedTarotCard == "Software Engineer")
+            else if (handName == "RightHand" && selectedTarotCard == "Software Engineer")
             {
                 Debug.Log("Right Hand Ending + Software Engineer");
                 UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterJobRight = true;
             }
 
             // Game Designer
-            else if (handName == "Left Hand" && selectedTarotCard == "Game Designer")
+            else if (handName == "LeftHand" && selectedTarotCard == "Game Designer")
             {
                 Debug.Log("Left Hand Ending + Game Designer");
                 UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterJobLeft = true;
             }
-            else if (handName == "Right Hand" && selectedTarotCard == "Game Designer")
+            else if (handName == "RightHand" && selectedTarotCard == "Game Designer")
             {
                 Debug.Log("Right Hand Ending + Game Designer");
                 UnityEngine.Object.FindFirstObjectByType<AudioGuideScript>().playAfterJobRight = true;

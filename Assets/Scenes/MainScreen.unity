@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 73249386}
   serializedVersion: 2
   m_LocalRotation: {x: 0.569994, y: 0.0000000017279429, z: -2.9071365e-10, w: 0.82164896}
-  m_LocalPosition: {x: -0.009412326, y: 1.5556879, z: -0.4683061}
+  m_LocalPosition: {x: 0, y: 1.5556879, z: -0.4683061}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41503,7 +41503,7 @@ MonoBehaviour:
   thirdAudioFinished: 0
   endScreen: {fileID: 562062606}
   startPosition: {x: -970, y: -1400, z: 0}
-  targetPosition: {x: -970, y: -525, z: 0}
+  targetPosition: {x: -970, y: -640, z: 0}
   moveSpeed: 0.5
 --- !u!4 &2123401263
 Transform:

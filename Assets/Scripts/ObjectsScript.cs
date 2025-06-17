@@ -118,40 +118,18 @@ public class ObjectsScript : MonoBehaviour
         Debug.Log("Object Colliders activated after Audio.");
     }
 
-    void SetMaterialTransparent(GameObject obj, float alpha)
-    {
-        Renderer rend = obj.GetComponent<Renderer>();
-        if (rend != null)
-        {
-            Material mat = rend.material; // Wichtig: .material statt .sharedMaterial, um Instanz zu ändern
-
-            mat.SetFloat("_Mode", 3); // 3 = Transparent
-            mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            mat.SetInt("_ZWrite", 0);
-            mat.DisableKeyword("_ALPHATEST_ON");
-            mat.EnableKeyword("_ALPHABLEND_ON");
-            mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-            mat.renderQueue = 3000;
-
-            Color color = mat.color;
-            color.a = alpha;
-            mat.color = color;
-        }
-    }
-
     void SetAllMaterialsTransparent(GameObject obj, float alpha)
     {
         Renderer rend = obj.GetComponent<Renderer>();
         if (rend != null)
         {
-            Material[] materials = rend.materials; // .materials erzeugt automatisch Instanzen
+            Material[] materials = rend.materials;
 
             foreach (Material mat in materials)
             {
                 if (mat == null) continue;
 
-                // Shader auf Transparent setzen
+                // Shader
                 mat.SetFloat("_Mode", 3); // 3 = Transparent
                 mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                 mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
@@ -161,7 +139,7 @@ public class ObjectsScript : MonoBehaviour
                 mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 mat.renderQueue = 3000;
 
-                // Alpha setzen
+                // Alpha
                 Color color = mat.color;
                 color.a = alpha;
                 mat.color = color;
@@ -213,8 +191,7 @@ public class ObjectsScript : MonoBehaviour
             }
 
             // Transparency
-            //SetMaterialTransparent(choiceObjects[index], 0.1f);
-            SetAllMaterialsTransparent(choiceObjects[index], 0.1f);
+            SetAllMaterialsTransparent(choiceObjects[index], 0.05f);
 
             lastVideoPlayedIndex = index;
 

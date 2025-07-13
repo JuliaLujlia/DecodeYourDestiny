@@ -1,8 +1,8 @@
-# Abgabe: Mastery or Mystery Projekt - Julia Egyed, Andreas Jugueta & Kiana Malek
+# Abgabe: Mastery or Mystery Hochschulprojekt - Julia Egyed, Andreas Jugueta & Kiana Malek
 
 ## Hinweis
 Dieses Git Repository ist unser zweites, mit der finalen Game Version.
-Daher sind hier nicht alle Pull Request einzusehen, wie weitere Features. Bei Bedarf veröffentliche ich auch das erste Repo mit der alten Spielversion.
+Daher sind hier nicht alle Pull Request einzusehen, wie weitere Features (wie Projektplanung). Bei Bedarf veröffentlichen wir auch das erste Repo mit der alten Spielversion.
 
 ## Präsentationen
 Gruppenpräsentation - https://docs.google.com/presentation/d/1gBICOdSzAFsr5NM_kv-s98JXGUpvlrPudaYMzFAOrFQ/edit?usp=sharing
